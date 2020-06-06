@@ -10,7 +10,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-  await client.change_presence(status=discord.Status.online, activity=discord.Game("T"))
+  await client.change_presence(status=discord.Status.online, activity=discord.Game("T커뮤니티 인증봇"))
   print("원진#7917") 
   print(client.user.name) 
   print(client.user.id) 
