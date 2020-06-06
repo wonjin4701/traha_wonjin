@@ -1,15 +1,16 @@
 
 
 import discord
+import os
  
 
-token = "NzE3MzAxMjMxMjIzMzA4MzI5.XtYU2Q.qYKV5ncEpOHscTd3-U0ZqVD7Kus"
+access_token = os.environ["BOT_TOKEN"]
 client = discord.Client()
 
 
 @client.event
 async def on_ready():
-  await client.change_presence(status=discord.Status.online, activity=discord.Game("테스트중"))
+  await client.change_presence(status=discord.Status.online, activity=discord.Game("T"))
   print("원진#7917") 
   print(client.user.name) 
   print(client.user.id) 
@@ -19,12 +20,12 @@ async def on_message(message):
  
   if message.content.startswith('/인증'): 
     author = message.guild.get_member(int(message.author.id))
-    role = discord.utils.get(message.guild.roles, name="TEST") 
+    role = discord.utils.get(message.guild.roles, name="커뮤니티 유저") 
     await author.add_roles(role)
     await message.channel.send(embed=embed)
 
 
-embed=discord.Embed(title="𝗩 𝙁𝙞𝙫𝙚𝙈 𝘾𝙤𝙢𝙢𝙪𝙣𝙞𝙩𝙮", description="인증이 완료되었습니다 :laughing:", color=0x00ff56)
+embed=discord.Embed(title="𝐓 𝙁𝙞𝙫𝙚𝙈 𝘾𝙤𝙢𝙢𝙪𝙣𝙞𝙩𝙮", description="인증이 완료되었습니다 :laughing:", color=0x5600ff)
 
 
 
@@ -34,5 +35,5 @@ embed=discord.Embed(title="𝗩 𝙁𝙞𝙫𝙚𝙈 𝘾𝙤𝙢𝙢𝙪𝙣�
 
   
 
-client.run(token)
+client.run(access_token)
 
